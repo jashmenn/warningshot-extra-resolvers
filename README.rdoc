@@ -1,3 +1,12 @@
 == warningshot-extra-resolvers
 
-A gem that provides...
+Your own personal WarningShot Resolvers, ripe for sharing.
+
+WarningShot is a fantastic "Dependency Resolution Framework" created by Cory
+ODaniel (http://github.com/coryodaniel/warningshot/tree/master). 
+
+This goal of this project is twofold
+
+1) Provide a collection of Resolvers that may or may not fit into core
+2) Provide an easy-to-use, forkable environment to develop WarningShot Resolvers
+
