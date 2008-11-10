@@ -1,6 +1,6 @@
 == 2008-11-10
 Here is a list of initial resolvers I'm planning on creating:
- * check that the current user has an id_rsa, if not, offer to create on (or in config specify to force create one)
+ * check that the current user has an id_rsa, if not, offer to create one (or in config specify to force create one)
  * MySQL database existence
  * find and install Perl libraries with CPAN (sometimes, you're stuck with legacy perl code)
    * note, I have to install custom perl libraries that *dont* resolve with CPAN. they resolve with symlink. support this case as well
