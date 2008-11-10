@@ -4,7 +4,7 @@
 # - :branch: ssh_key_pair
 #   :environments:
 #     :production:
-#       - true
+#       - {key_type: "rsa", passphrase: '', comment: '', output_keyfile: "~/.ssh/id_rsa"}
 #
 class WarningShot::SshKeyPairResolver
   include WarningShot::Resolver
