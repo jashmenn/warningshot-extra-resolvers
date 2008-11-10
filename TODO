@@ -1,4 +1,11 @@
-TODO:
-Fix LICENSE with your name
-Fix Rakefile with your name and contact info
-Add your code to lib/<%= name %>.rb
+== 2008-11-10
+Here is a list of initial resolvers I'm planning on creating:
+ * check that the current user has an id_rsa, if not, offer to create on (or in config specify to force create one)
+ * MySQL database existence
+ * find and install Perl libraries with CPAN (sometimes, you're stuck with legacy perl code)
+   * note, I have to install custom perl libraries that *dont* resolve with CPAN. they resolve with symlink. support this case as well
+ * possibly subversion config?
+   at least one that will spit out instructions, tho maybe you can just use the manual providor for all of that.
+   though maybe you could just have a FileContent resolver. Specify a file, and a regexp it needs to match, otherwise do something
+
+Also maybe patch warningshot to have erb in the yaml files.

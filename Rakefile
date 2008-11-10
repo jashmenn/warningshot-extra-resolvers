@@ -1,22 +1,30 @@
+require 'pathname'
 require 'rubygems'
+require 'rake/clean'
 require 'rake/gempackagetask'
 require 'rubygems/specification'
 require 'date'
 require 'spec/rake/spectask'
+require "spec/story"
+require 'spec/story/extensions/main'
 
 GEM = "warningshot-extra-resolvers"
+NAME = GEM
 GEM_VERSION = "0.0.1"
 AUTHOR = "Nate Murray"
 EMAIL = "nate@natemurray.com"
 HOMEPAGE = "http://example.com"
 SUMMARY = "Extra resolvers for warningshot"
 
+ROOT = Pathname(__FILE__).dirname.expand_path
+CLEAN.include ["**/.*.sw?", "pkg", "lib/*.bundle", "*.gem", "doc/","doc/", "test/output/*", "coverage", "cache"]
+
 spec = Gem::Specification.new do |s|
   s.name = GEM
   s.version = GEM_VERSION
   s.platform = Gem::Platform::RUBY
   s.has_rdoc = true
-  s.extra_rdoc_files = ["README", "LICENSE", 'TODO']
+  s.extra_rdoc_files = ["README", 'TODO']
   s.summary = SUMMARY
   s.description = s.summary
   s.author = AUTHOR
@@ -28,7 +36,7 @@ spec = Gem::Specification.new do |s|
   
   s.require_path = 'lib'
   s.autorequire = GEM
-  s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
+  s.files = %w(README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
 end
 
 task :default => :spec
@@ -55,3 +63,5 @@ task :make_spec do
     file.puts spec.to_ruby
   end
 end
+
+Dir['tasks/*.rb'].each {|r| require r}
