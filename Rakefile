@@ -8,6 +8,11 @@ require 'spec/rake/spectask'
 require "spec/story"
 require 'spec/story/extensions/main'
 
+begin
+require 'opc/tasks/publish_gems'
+rescue LoadError
+end
+
 GEM = "warningshot-extra-resolvers"
 NAME = GEM
 GEM_VERSION = "0.0.1"
