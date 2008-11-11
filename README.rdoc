@@ -10,3 +10,5 @@ This goal of this project is twofold
  1. Provide a collection of Resolvers that may or may not fit into core
  2. Provide an easy-to-use, forkable environment to develop WarningShot Resolvers
 
+To use, simply: 
+ uhh...
