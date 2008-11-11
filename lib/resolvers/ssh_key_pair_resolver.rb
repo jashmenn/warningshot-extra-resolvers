@@ -36,6 +36,14 @@ class WarningShot::SshKeyPairResolver
     h = HighLine.new
     wants_to = inst.ask ? (h.ask("Do you want me to generate #{inst.output_keyfile} and #{inst.output_keyfile}.pub?: [Y/n]") =~ /^y/i) : true
 
+    private_key     = File.expand_path(inst.output_keyfile)
+    both_keys_exist = File.exists?(private_key) && File.exists?(private_key + ".pub") 
+
+    if File.exists?(private_key) || File.exists?(private_key + ".pub")
+      h.say("Private or public key #{private_key}[.pub] already exists. Will not overwrite.")
+      wants_to = false
+    end
+
     if wants_to
       keygen_bin  = `which ssh-keygen`.strip
       kg_opts  = []
@@ -47,9 +55,6 @@ class WarningShot::SshKeyPairResolver
       cmd = "#{keygen_bin} #{kg_opts.join(' ')}"
       h.say cmd
       %x{#{cmd}}
-
-      private_key     = File.expand_path(inst.output_keyfile)
-      both_keys_exist = File.exists?(private_key) && File.exists?(private_key + ".pub") 
 
       if ($? == 0 && both_keys_exist) # true or false on if it passed
         true
