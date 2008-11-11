@@ -15,7 +15,7 @@ end
 
 GEM = "warningshot-extra-resolvers"
 NAME = GEM
-GEM_VERSION = "0.0.1"
+GEM_VERSION = "0.0.2"
 AUTHOR = "Nate Murray"
 EMAIL = "nate@natemurray.com"
 HOMEPAGE = "http://example.com"
