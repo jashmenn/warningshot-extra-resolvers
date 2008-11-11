@@ -26,8 +26,9 @@ describe WarningShot::MysqlDatabaseResolver do
       :user        => "jerrys", 
       :password    => "kids", 
       :user_host   => "localhost", 
-      :permissions => "ALL"}
+      :permissions => "ALL"
     })
+    pending
 
     fd.test!
     fd.failed.length.should be(1)
